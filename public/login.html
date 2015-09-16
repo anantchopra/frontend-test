@@ -1,0 +1,29 @@
+<html>
+<head>
+ <title>My Angular App</title>
+    <script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	 <script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>	
+	<script src="/js/app.js"></script>
+	<script src="/js/service/service.js"></script>
+	<script src="/js/controller/loginController.js"></script>
+</head>
+<body>
+<div ng-app="app" class="container" >
+<div class="jumbotron">
+    <h1>Frontend Test Master Using Angular Js</h1>
+	<div class="col-sm-4">
+      <h3>Login</h3>  
+<table ng-controller="loginController" class="table-striped">
+<tr>
+<td>UserName</td>
+<td><input type="text" ng-model="userName"></td>
+</tr>
+<tr>
+<td>Password</td><td><input type="text" ng-model="password"></td>
+</tr>
+<tr>
+<td colspan="2"><input type="submit" value="Login" ng-click="login(userName,password)">
+</td></table>
+ </div>
+</div>
+</body>

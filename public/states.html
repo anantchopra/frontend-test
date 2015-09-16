@@ -1,0 +1,73 @@
+<html>
+<head>
+ <title>States</title>
+    <script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script  src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>	
+	<script src="/js/app.js"></script>
+	<script src="/js/service/service.js"></script>
+	<script src="/js/controller/statesController.js"></script>
+	<script src="/js/controller/guestbookController.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+</head>
+<body >
+<div ng-app="app"  class="container">
+<div class="jumbotron">
+    <h1>Frontend Test Master Using Angular Js</h1>    
+</div>
+<div ng-controller="statesController"  ng-init="populateStates()">
+ <div class="col-sm-4">
+      <h3>States</h3>   
+<table class="table-striped" >
+ </div>
+<th><td colspan="2"><input type="submit" value="Log Out" ng-click="logout()"></td></th>
+<tr><td>Select State</td>
+<td>
+  <select ng-model="selectedStateDetails" class="input-medium" ng-options="state.name for state in states" ng-change="getStateDetails(selectedStateDetails)">
+  <option value="">Select Type</option>  </select>
+</td>
+</tr>
+<tr><td >Abbreviation</td>
+ <td>{{selectedStateDetails.abbreviation}}</td>
+</tr>
+<tr><td >Capital</td>
+ <td>{{selectedStateDetails.capital}}</td>
+</tr>
+<tr><td >DST</td>
+ <td>{{selectedStateDetails.dst}}</td>
+</tr>
+<tr><td >Most Populous City</td>
+ <td>{{selectedStateDetails.most-populous-city}}</td>
+</tr>
+<tr><td >Name</td>
+ <td>{{selectedStateDetails.name}}</td>
+</tr>
+<tr><td >Population</td>
+ <td>{{selectedStateDetails.population}}</td>
+</tr>
+<tr><td >Area (sq-miles)</td>
+ <td>{{selectedStateDetails.square-miles}}</td>
+</tr>
+<tr><td >Time-Zone-1</td>
+ <td>{{selectedStateDetails.time-zone-1}}</td>
+</tr>
+<tr><td >Time-Zone-2</td>
+ <td>{{selectedStateDetails.time-zone-2}}</td>
+</tr>
+</table>
+</div>
+<div  ng-controller="guestbookController" ng-init="getMessages()">
+<div class="col-sm-4">
+      <h3>Messages</h3>
+<table class="table-striped">
+
+<tr  ng-repeat="message in messages">
+<td>{{message.user}}</td>
+<td>{{message.phone}}</td>
+<td>{{message.message}}</td>
+</tr>
+<tr><td colspan="3"><input type="submit" value="Add New Message" ng-click="addMessage()"></td></tr>
+</table>
+</div>
+</div>
+</div>
+</body>
